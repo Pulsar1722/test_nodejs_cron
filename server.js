@@ -2,6 +2,9 @@
 
 const API_ROOT = "https://kusuri-miru-api-4b3a54cvqq-an.a.run.app/"; // レビュー情報を取得する際に用いるAPIのルートディレクトリ
 const MAX_RANK = 5; // 上位何位までの薬のレーティング情報を取得するか
+const GOOGLE_ANALYTICS_AUTH_JSON = "./google_analytics_auth.json" // Googleアナリティクスへのアクセス認証用JSONファイル
+const GOOGLE_ANALYTICS_VIEW_ID = "228276979"; // 見たいGoogleアナリティクスのビューID
+
 
 // レーティング情報を格納するオブジェクト
 function RatingInfo(drugName, countRatings, avgRating) {
@@ -14,8 +17,6 @@ function RatingInfo(drugName, countRatings, avgRating) {
 const cron = require('node-cron');
 const axios = require('axios');
 const { google } = require('googleapis'); // Google AnalyticsへのAPIアクセス用
-const GOOGLE_ANALYTICS_VIEW_ID = "228276979";
-const GOOGLE_ANALYTICS_AUTH_JSON = "./google_analytics_auth.json"
 
 if (require.main === module) {
     main();
